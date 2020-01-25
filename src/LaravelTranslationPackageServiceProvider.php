@@ -3,6 +3,7 @@
 namespace Mauricehofman\LaravelTranslationPackage;
 
 use Illuminate\Support\ServiceProvider;
+use Mauricehofman\LaravelTranslationPackage\Console\Commands\MergeTranslation;
 
 class LaravelTranslationPackageServiceProvider extends ServiceProvider
 {
@@ -40,7 +41,11 @@ class LaravelTranslationPackageServiceProvider extends ServiceProvider
             ], 'lang');*/
 
             // Registering package commands.
-            // $this->commands([]);
+            if ($this->app->runningInConsole()) {
+                $this->commands([
+                    MergeTranslation::class,
+                ]);
+            }
         }
     }
 
