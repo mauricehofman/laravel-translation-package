@@ -1,0 +1,54 @@
+{
+    "name": "mauricehofman/laravel-translation-package",
+    "description": "Keep your language files up to date with your version of laravel",
+    "keywords": [
+        "mauricehofman",
+        "laravel-translation-package"
+    ],
+    "homepage": "https://github.com/mauricehofman/laravel-translation-package",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Maurice Hofman",
+            "email": "info@mauricehofman.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mauricehofman\\LaravelTranslationPackage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mauricehofman\\LaravelTranslationPackage\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mauricehofman\\LaravelTranslationPackage\\LaravelTranslationPackageServiceProvider"
+            ],
+            "aliases": {
+                "LaravelTranslationPackage": "Mauricehofman\\LaravelTranslationPackage\\LaravelTranslationPackageFacade"
+            }
+        }
+    }
+}
